@@ -24,8 +24,8 @@
             <input type="text" name="status" id="status">
         </div>
         <div class="form-control">
-            <label for="pass">Password</label>
-            <input type="password" name="pass" id="pass">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
         </div>
         <div class="form-control">
             <label for="ket">Ket</label>

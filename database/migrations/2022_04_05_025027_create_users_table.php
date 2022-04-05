@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('kodeuser', 20);
             $table->string('nama', 100);
             $table->string('status', 20);
-            $table->string('pass');
+            $table->string('password');
             $table->text('ket');
             $table->timestamps();
         });

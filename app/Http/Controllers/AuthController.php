@@ -25,28 +25,40 @@ class AuthController extends Controller
      * Functional 
      */
 
+    /**
+     * Login Function (Validate | Attempt)
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function login(Request $request)
     {
         $request->validate([
             'kodeuser' => 'required',
-            'pass' => 'required',
+            'password' => 'required',
         ]);
 
-        $credentials = $request->only(['kodeuser', 'pass']);
+        $credentials = $request->only(['kodeuser', 'password']);
         if (Auth::attempt($credentials)) {
             return redirect('/');
         }
 
-        return 'error';
+        return 'logged in';
     }
 
+    /**
+     * Registration Function (Validate | Bcrypt | Attempt)
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function register(Request $request)
     {
         $request->validate([
             'kodeuser' => 'required',
             'nama' => 'required',
             'status' => 'required',
-            'pass' => 'required|min:3'
+            'password' => 'required|min:3'
         ]);
 
         $data = $request->except(['_token']);
@@ -54,10 +66,10 @@ class AuthController extends Controller
             'kodeuser' => $data['kodeuser'],
             'nama' => $data['nama'],
             'status' => $data['status'],
-            'pass' => $data['pass'],
+            'password' => $data['password'],
             'ket' => $data['ket']
         ]);
-
+        // return false;
         return redirect('/auth/login');
     }
 }

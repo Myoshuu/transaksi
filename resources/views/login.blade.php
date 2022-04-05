@@ -16,8 +16,8 @@
             <input type="text" name="kodeuser" id="kodeuser">
         </div>
         <div class="form-control">
-            <label for="pass">Password</label>
-            <input type="pass" name="pass" id="pass">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
         </div>
         <button type="submit">Login</button>
     </form>
