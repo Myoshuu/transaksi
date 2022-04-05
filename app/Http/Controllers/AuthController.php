@@ -38,9 +38,12 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        $credentials = $request->only(['kodeuser', 'password']);
-        if (Auth::attempt($credentials)) {
-            return redirect('/');
+        // $credentials = $request->only('kodeuser');
+        // $pass_verify = Hash::check($request->password,);
+
+        $credentials =  $request->only(['kodeuser', 'password']);
+        if (!Auth::attempt($credentials)) {
+            return redirect('/auth/login');
         }
 
         return 'logged in';
